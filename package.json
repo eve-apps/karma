@@ -1,0 +1,48 @@
+{
+  "name": "karma",
+  "version": "1.0.0-alpha",
+  "description": "Gamification of member activities for Eve Online corporations",
+  "license": "Apache-2.0",
+  "author": "Soullesswaffle",
+  "contributors": [
+    {
+      "name": "pjbollinger"
+    },
+    {
+      "name": "Soullesswaffle"
+    }
+  ],
+  "homepage": "https://github.com/eve-apps/karma",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eve-apps/karma.git"
+  },
+  "bugs": "https://github.com/eve-apps/karma/issues",
+  "main": "karma.coffee",
+  "engines": {
+    "node": "^0.12.2"
+  },
+  "scripts": {
+    "start": "coffee karma.coffee"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "debug": "^2.1.3",
+    "express": "^4.12.3",
+    "jade": "^1.9.2",
+    "morgan": "^1.5.2",
+    "nib": "^1.1.0",
+    "pg": "^4.3.0",
+    "stylus": "^0.50.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-stylus": "^0.21.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.4.0",
+    "mocha": "^2.2.4",
+    "should": "^5.2.0"
+  },
+  "private": true
+}
