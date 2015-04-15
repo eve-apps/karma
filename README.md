@@ -16,6 +16,11 @@ Install Grunt CLI
 $ npm install -g grunt-cli
 ```
 
+Install Mocha
+```
+$ npm install -g mocha
+```
+
 ## Installation
 
 ```
