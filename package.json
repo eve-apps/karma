@@ -23,7 +23,8 @@
     "node": "^0.12.2"
   },
   "scripts": {
-    "start": "coffee karma.coffee"
+    "start": "coffee karma.coffee",
+    "test": "mocha"
   },
   "dependencies": {
     "async": "^0.9.0",
