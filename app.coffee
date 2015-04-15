@@ -24,6 +24,7 @@ debug("view engine configured")
 # Configure routes
 app.route "/"
   .get (req, res) ->
+    debug("sending \"Hello, world!\"")
     return res.send "Hello, world!"
 debug("routes configured")
 
