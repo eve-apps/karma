@@ -32,7 +32,7 @@ module.exports = (grunt) ->
         options:
           ignore: ["./public/*"]
           env:
-            DEBUG: "*"
+            DEBUG: "karma:*"
             PORT: "3436"
     watch:
       options:

@@ -1,4 +1,4 @@
-debug = require("debug")("app")
+debug = require("debug")("karma:app")
 debug("booting")
 express = require("express")
 expressLogger = require("morgan")
