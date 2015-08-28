@@ -31,3 +31,5 @@ node_modules
 *.sublime-workspace
 
 # karma specific
+public/js/*
+public/css/*
