@@ -33,3 +33,5 @@ node_modules
 # karma specific
 public/js/*
 public/css/*
+!public/js/lib
+!public/css/lib
