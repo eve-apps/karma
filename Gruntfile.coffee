@@ -19,6 +19,8 @@ module.exports = (grunt) ->
           import: [
             "nib"
           ]
+          sourcemap:
+            inline: true
         files: [
           expand: true
           flatten: true
