@@ -35,6 +35,7 @@ module.exports = (grunt) ->
           ignore: [ # Do not restart when files in these folders are modified
             "./public/*"
             "./src/*"
+            "./node_modules/*"
           ]
           env:
             DEBUG: "karma:*"
@@ -43,19 +44,25 @@ module.exports = (grunt) ->
     watch:
       options:
         livereload: true
+        atBegin: true
       coffee:
         files: ["./src/coffee/*.coffee"]
         tasks: ["coffee"]
       stylus:
         files: ["./src/styl/*.styl"]
         tasks: ["stylus"]
+    concurrent:
+      tasks: ["watch", "nodemon"]
+      options:
+        logConcurrentOutput: true
   )
 
   grunt.loadNpmTasks "grunt-contrib-coffee"
   grunt.loadNpmTasks "grunt-contrib-stylus"
   grunt.loadNpmTasks "grunt-nodemon"
   grunt.loadNpmTasks "grunt-contrib-watch"
+  grunt.loadNpmTasks "grunt-concurrent"
 
-  grunt.registerTask("default", ["coffee", "stylus", "nodemon", "watch"])
+  grunt.registerTask("default", ["concurrent"])
 
   return
