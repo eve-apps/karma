@@ -24,8 +24,10 @@ debug("view engine configured")
 # Configure routes
 app.route "/"
   .get (req, res) ->
-    debug("sending \"Hello, world!\"")
-    return res.send "Hello, world!"
+    debug("sending index page")
+    res.render "index",
+      title: "Index"
+    return
 debug("routes configured")
 
 # Start listening
