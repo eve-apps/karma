@@ -30,7 +30,17 @@ module.exports = (grunt) ->
       dev:
         script: "app.coffee"
         options:
-          ignore: ["./public/*"]
+          ignore: [ # Do not restart when these files change
+            ".gitignore"
+            "./.git"
+            "./public/*"
+            "./src/*"
+            "*.sublime-project"
+            "*.sublime-workspace"
+            "./LICENSE"
+            "./package.json"
+            "./README.md"
+          ]
           env:
             DEBUG: "karma:*"
             PORT: "3436"
