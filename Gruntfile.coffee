@@ -36,11 +36,20 @@ module.exports = (grunt) ->
             "./public/*"
             "./src/*"
             "./node_modules/*"
+            "./.livereload"
           ]
           env:
             DEBUG: "karma:*"
             PORT: "3436"
           ext: "js,coffee"
+          callback: (nodemon) ->
+            # Write to the .livereload file when nodemon restarts the server
+            nodemon.on "restart", ->
+              setTimeout (->
+                require("fs").writeFileSync ".livereload", "K"
+                return
+              ), 1000
+              return
     watch:
       options:
         livereload: true
@@ -51,6 +60,9 @@ module.exports = (grunt) ->
       stylus:
         files: ["./src/styl/*.styl"]
         tasks: ["stylus"]
+      server: # Watch the .livereload file so that it triggers a reload
+        files: ["./.livereload", "./views/*.jade"]
+        tasks: [] # No need to run a task here
     concurrent:
       tasks: ["watch", "nodemon"]
       options:

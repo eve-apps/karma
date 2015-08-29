@@ -35,3 +35,4 @@ public/js/*
 public/css/*
 !public/js/lib
 !public/css/lib
+.livereload
