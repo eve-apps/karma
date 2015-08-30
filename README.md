@@ -2,6 +2,8 @@
 
 Gamification of member activities for Eve Online corporations
 
+_Complete installation guide for contributors: [CONTRIBUTING.md](CONTRIBUTING.md)_
+
 ## Pre-installation
 
 Download and install Node.js from [nodejs.org][1]
