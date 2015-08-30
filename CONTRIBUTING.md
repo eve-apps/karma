@@ -6,12 +6,12 @@ Some quick notes:
 * I am assuming you have your file explorer set to [show file extensions](http://www.sevenforums.com/tutorials/10570-file-extensions-hide-show.html)
 
 ### Step 1: Installing Node.js
-1. Go to NodeJS.org
+1. Go to [NodeJS.org](https://nodejs.org)
 2. Click the install button to download the installer
 3. Run the installer (all the default settings are fine)
 
 ### Step 2: Installing Git for Windows
-1. Go to git-scm.com/download/win
+1. Go to [git-scm.com/download/win](http://git-scm.com/download/win)
 2. The correct installer should start downloading automatically
 3. Open the installer
 4. Click next until presented with the Component Selection screen
@@ -23,7 +23,7 @@ Some quick notes:
 ### Step 3: Installing SmartGit
 SmartGit is a Git client. It is not required (in theory you could use only the command line), but it is highly recommended. [GitHub for Windows](https://desktop.github.com) is a reasonable though less versatile alternative.
 
-1. Go to syntevo.com/smartgit
+1. Go to [syntevo.com/smartgit](http://www.syntevo.com/smartgit)
 2. Click the download button to download a .zip file containing the installer
 3. Run the installer (all the default settings are fine)
 
@@ -31,7 +31,7 @@ SmartGit is a Git client. It is not required (in theory you could use only the c
 You will need a text editor that has syntax highlighting for CoffeeScript, Jade, Stylus and JSON.
 Sublime Text 3 is recommended, but not required.
 
-1. Go to sublimetext.com/3
+1. Go to [sublimetext.com/3](http://www.sublimetext.com/3)
 2. Download the 64-bit installer if your OS is 64-bit, otherwise download the regular installer
 3. Open the installer
 4. You will probably want to enable the _Add to explorer context menu_ option, but the rest of the defaults are fine
@@ -54,7 +54,7 @@ Sublime Text 3 is recommended, but not required.
 1. Follow [GitHub's Generating SSH keys guide](https://help.github.com/articles/generating-ssh-keys/), **but at step 3.1 run ``eval `ssh-agent -s` `` instead**
 
 ### Step 7: Configuring Sublime Text 3
-1. Follow the installation guide at packagecontrol.io/installation to install the Sublime Text 3 package manager
+1. Follow the installation guide at [packagecontrol.io/installation](https://packagecontrol.io/installation) to install the Sublime Text 3 package manager
 2. Restart Sublime
 3. Press Ctrl+Shift+P in Sublime to open the command palette
 4. Type `install`, then select _Install Package_ by either clicking it or pressing enter if it's on top of the list
