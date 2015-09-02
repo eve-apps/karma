@@ -63,7 +63,7 @@ module.exports = (grunt) ->
       stylus:
         files: ["./src/styl/*.styl"]
         tasks: ["stylus"]
-      server: # Watch the .livereload file so that it triggers a reload
+      server: # Watch the .livereload file so that livereload triggers when the file is modified
         files: ["./.livereload", "./views/*.jade"]
         tasks: [] # No need to run a task here
     concurrent:
