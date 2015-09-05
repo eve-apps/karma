@@ -30,9 +30,10 @@ node_modules
 *.sublime-project
 *.sublime-workspace
 
-# karma specific
+# Project specific
 public/js/*
 public/css/*
 !public/js/lib
 !public/css/lib
 .livereload
+credentials.coffee
