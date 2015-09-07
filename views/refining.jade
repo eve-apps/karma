@@ -10,68 +10,6 @@ block append head
   script(src="/plugins/select2/select2.full.min.js")
   script(src="/js/refining.js")
 
-  script(type='text/javascript').
-    var refineMe = new Array();
-    function AddNewRefineElement()
-    {
-    var itemName = document.getElementById("oreInput1").value;
-    var Quantity = document.getElementById("inputQuantity").value;
-    var found = false;
-    for(var i = 0; i < refineMe.length; i++)
-    {
-    if(refineMe[i][0] == itemName)
-    {
-    found = true;
-    var old  = eval(refineMe[i][1]) ;
-    old += eval(Quantity);
-    refineMe[i][1] = old;
-    }
-    }
-    var t = $("#refineSource").DataTable();
-    if (!found)
-    {
-    var row = new Array();
-    row.push(itemName);
-    row.push(Quantity);
-    refineMe.push(row);
-    //-t.row.add(row);
-    }
-    t.clear();
-    $(refineMe).each(function() { t.row.add(this) ;});
-    
-    t.draw();
-
-    }
-    
-    
-    //accepts optional array of values as 2nd parameter for parameterized queries
-  
-
-    $(document).ready(function() {
-    $("#refineSource").DataTable( {
-    "paging":   false,
-    "searching": false,
-    data: refineMe,
-    columns: [
-    { title: "Ore" },
-    { title: "Quantity" }
-    ]
-    } );
-
-    
-    $(".select2").select2(); 
-
-
-    
-
-    //- $(oreList).each(function() {
-    //- var opt = document.createElement('option');
-    //- opt.innerHTML = this;
-
-    //- $("#oreInput1").appendChild(opt);});
-    
-    } );
-
 block content
   .row
       // left column
