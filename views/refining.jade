@@ -1,9 +1,11 @@
 extend dashboard
 
-block head
-  link(rel="stylesheet", type="text/css", href="https://cdn.datatables.net/r/dt/jq-2.1.4,dt-1.10.9/datatables.min.css")
+block append head
+  //- Stylesheets
+  link(rel="stylesheet", type="text/css", href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css")
   link(rel="stylesheet", href="/plugins/select2/select2.min.css")
-  //- script(type="text/javascript", src="https://cdn.datatables.net/r/dt/jq-2.1.4,dt-1.10.9/datatables.min.js")
+  
+  //- Javascript
   script(type="text/javascript", src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js")
   script(src="/plugins/select2/select2.full.min.js")
   script(src="/js/refine.js")

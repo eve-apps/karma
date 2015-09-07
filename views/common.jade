@@ -1,26 +1,21 @@
 doctype html
 html(lang="en")
   head
-    meta(http-equiv="X-UA-Compatible", content="IE=Edge")
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1")
-    meta(name="application-name", content="Karma")
-    meta(name="description", content="Karma incentivizes and rewards activity in EVE Online corporations and alliances")
-    title Karma - #{title}
-
-    //- Stylesheets
-    link(rel="stylesheet", href="/css/lib/normalize.css")
-    link(rel="stylesheet", href="/css/common.css")
-
-    //- Javascript
-    script(type="application/javascript", src="//localhost:35729/livereload.js")
-    script(type="application/javascript", src="/js/lib/jquery.min.js")
-    script(type="application/javascript", src="/js/common.js")
     block head
-  body
-    header
-      h1 Welcome to Karma!
-    main
-      block content
-    footer
-      | Running on Node with Express, CoffeeScript, Jade and Stylus
+      meta(http-equiv="X-UA-Compatible", content="IE=Edge")
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+      meta(name="application-name", content="Karma")
+      meta(name="description", content="Karma incentivizes and rewards activity in EVE Online corporations and alliances")
+      title Karma - #{title}
+
+      //- Stylesheets
+      link(rel="stylesheet", href="/css/lib/normalize.css")
+      link(rel="stylesheet", href="/css/common.css")
+
+      //- Javascript
+      script(type="application/javascript", src="//localhost:35729/livereload.js")
+      script(type="application/javascript", src="/js/lib/jquery.min.js")
+      script(type="application/javascript", src="/js/common.js")
+  body.hold-transition.skin-purple.sidebar-mini
+    block body
