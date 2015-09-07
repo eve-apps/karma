@@ -34,7 +34,7 @@ app.set("view engine", "jade")
 debug("view engine configured")
 
 # Configure routes
-require("./routes.coffee")(app)
+require("./routes.coffee")(app, pg, credentials)
 debug("routes configured")
 
 # Start listening on port
