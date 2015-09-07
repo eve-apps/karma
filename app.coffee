@@ -3,24 +3,31 @@ debug("booting")
 express = require("express")
 expressLogger = require("morgan")
 jade = require("jade")
-stylus = require("stylus")
-nib = require("nib")
 pg = require("pg")
-query = require("pg-query")
-
-connString = "postgres://karma_app_db:Jhnk870hh6hllfR45@localhost:5432/Karma"
-
-port = process.env.PORT or 80
 debug("dependencies loaded")
+
+# Configure database connection
+try
+  credentials = require("./credentials.coffee")
+  debug("credentials loaded")
+catch
+  debug("credentials file not found")
+  process.exit 1
+query = require("pg-query")
+query.connectionParameters = credentials.db.connString
+debug("database connection configured")
+
+# Set server port
+port = process.env.PORT or 80
+# Initialize express app
 app = express()
-
-# Enable express logger
+# Start express logger
 app.use expressLogger("dev")
-
 # Publish static content
 app.use express.static(__dirname + "/public")
+debug("express server configured")
 
-# Use Jade as view engine
+# Configure Jade view engine
 app.set("views", __dirname + "/views")
 app.set("view engine", "jade")
 debug("view engine configured")
@@ -45,7 +52,7 @@ app.route "/refine"
     return
 debug("routes configured")
 
-# Start listening
+# Start listening on port
 app.listen port, ->
   debug("listening on port #{port}")
   return

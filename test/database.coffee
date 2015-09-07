@@ -1,7 +1,7 @@
 expect = require("expect.js")
 query = require("pg-query")
 credentials = require("../credentials.coffee")
-query.connectionParameters = "postgres://#{credentials.db.username}:#{credentials.db.password}@localhost/test"
+query.connectionParameters = credentials.testdb.connString
 
 describe "database", ->
   before (done) ->
