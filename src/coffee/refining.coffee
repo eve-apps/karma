@@ -13,7 +13,7 @@
 refineMe = []
 #accepts optional array of values as 2nd parameter for parameterized queries
 
-AddNewRefineElement = ->
+AddNewRefiningElement = ->
   itemName = document.getElementById("oreInput1").value
   Quantity = document.getElementById("inputQuantity").value
   found = false
@@ -25,7 +25,7 @@ AddNewRefineElement = ->
       old += eval(Quantity)
       refineMe[i][1] = old
     i++
-  t = $("#refineSource").DataTable()
+  t = $("#refiningSource").DataTable()
   if !found
     row = new Array
     row.push itemName
@@ -40,7 +40,7 @@ AddNewRefineElement = ->
   return
 
 $(document).ready ->
-  $("#refineSource").DataTable
+  $("#refiningSource").DataTable
     "paging": false
     "searching": false
     data: refineMe
