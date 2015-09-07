@@ -58,7 +58,7 @@ module.exports = (grunt) ->
         livereload: true
         atBegin: true
       coffee:
-        files: ["./src/coffee/*.coffee"]
+        files: ["./src/coffee/*.coffee","./karmadb.coffee"]
         tasks: ["coffee"]
       stylus:
         files: ["./src/styl/*.styl"]

@@ -1,0 +1,193 @@
+extend mainsite
+
+block head
+  link(rel="stylesheet", type="text/css", href="https://cdn.datatables.net/r/dt/jq-2.1.4,dt-1.10.9/datatables.min.css")
+  link(rel="stylesheet", href="/plugins/select2/select2.min.css")
+  //- script(type="text/javascript", src="https://cdn.datatables.net/r/dt/jq-2.1.4,dt-1.10.9/datatables.min.js")
+  script(type="text/javascript", src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js")
+  script(src="/plugins/select2/select2.full.min.js")
+  script(src="/js/refine.js")
+
+  script(type='text/javascript').
+    var refineMe = new Array();
+    function AddNewRefineElement()
+    {
+    var itemName = document.getElementById("oreInput1").value;
+    var Quantity = document.getElementById("inputQuantity").value;
+    var found = false;
+    for(var i = 0; i < refineMe.length; i++)
+    {
+    if(refineMe[i][0] == itemName)
+    {
+    found = true;
+    var old  = eval(refineMe[i][1]) ;
+    old += eval(Quantity);
+    refineMe[i][1] = old;
+    }
+    }
+    var t = $("#refineSource").DataTable();
+    if (!found)
+    {
+    var row = new Array();
+    row.push(itemName);
+    row.push(Quantity);
+    refineMe.push(row);
+    //-t.row.add(row);
+    }
+    t.clear();
+    $(refineMe).each(function() { t.row.add(this) ;});
+    
+    t.draw();
+
+    }
+    
+    
+    //accepts optional array of values as 2nd parameter for parameterized queries
+  
+
+    $(document).ready(function() {
+    $("#refineSource").DataTable( {
+    "paging":   false,
+    "searching": false,
+    data: refineMe,
+    columns: [
+    { title: "Ore" },
+    { title: "Quantity" }
+    ]
+    } );
+
+    
+    $(".select2").select2(); 
+
+
+    
+
+    //- $(oreList).each(function() {
+    //- var opt = document.createElement('option');
+    //- opt.innerHTML = this;
+
+    //- $("#oreInput1").appendChild(opt);});
+    
+    } );
+
+block content
+  .row
+      // left column
+      .col-md-6
+        // general form elements
+        .box.box-success
+          .box-header.with-border
+            h3.box-title Character Info
+          // /.box-header
+          // form start
+          form
+            .box-body
+              .form-group
+                input#refiningSkillInput.form-control(type='refining', placeholder='Refining Skill')
+              .form-group
+                input#refiningEffeciencySkillInput.form-control(type='refiningEff', placeholder='Refining Effecienccy Skill')
+              .form-group
+                .row
+                  .col-xs-2
+                    label(for="mineral1") Veldspar
+                  .col-xs-2
+                    label(for="mineral2") Scordite
+                  .col-xs-2
+                    label(for="mineral3") Omber
+                  .col-xs-2
+                    label(for="mineral4") Plaigioclase
+                  .col-xs-2
+                    label(for="mineral5") Jaspet
+                .row
+                  .col-xs-2
+                    select#mineral1.form-control(type='mineral1', placeholder='Dark Ocher Refining Skill')
+                      option  0
+                      option  1
+                      option  2
+                      option  3
+                      option  4
+                      option  5
+                  .col-xs-2
+                    select#mineral2.form-control(type='mineral2', placeholder='Dark Ocher Refining Skill')
+                      option  0
+                      option  1
+                      option  2
+                      option  3
+                      option  4
+                      option  5
+                  .col-xs-2
+                    select#mineral3.form-control(type='mineral3', placeholder='Dark Ocher Refining Skill')
+                      option  0
+                      option  1
+                      option  2
+                      option  3
+                      option  4
+                      option  5
+                  .col-xs-2
+                    select#mineral4.form-control(type='mineral4', placeholder='Plaigioclase Refining Skill')
+                      option  0
+                      option  1
+                      option  2
+                      option  3
+                      option  4
+                      option  5
+                  .col-xs-2
+                    select#mineral5.form-control(type='mineral5', placeholder='Jaspet Refining Skill')
+                      option  0
+                      option  1
+                      option  2
+                      option  3
+                      option  4
+                      option  5
+
+
+
+                
+              .form-group
+                input#mineral2.form-control(type='mineral2', placeholder='Scordite Refining Skill')
+              .form-group
+                input#mineral3.form-control(type='mineral3', placeholder='Omber Refining Skill')
+              .form-group
+                input#mineral4.form-control(type='mineral4', placeholder='Jaspet Refining Skill')
+              .form-group
+                label(for='mineral5') Dark Ocher
+                .col-xs-3
+                  select#mineral5.form-control(type='mineral5', placeholder='Dark Ocher Refining Skill')
+                    option  0
+                    option  1
+                    option  2
+                    option  3
+                    option  4
+                    option  5
+            // /.box-body
+            .box-footer
+              button.btn.btn-primary(type='submit') Submit
+        // /.box
+      .col-md-6
+        // Horizontal Form
+        .box.box-warning
+          .box-header.with-border
+            h3.box-title Ore Entry
+          // /.box-header
+          // form start
+          form
+            .box-body
+              .form-group
+                .row
+                  label.col-xs-1(for='oreInput1') Ore
+                  .col-xs-4
+                    select#oreInput1.form-control.select2(type='select', placeholder='Ore Type')
+                      option Veldspar
+                      option Omber
+                      option Arknor
+                  label.col-sm-2(for='inputQuantity') Quantity
+                  .col-xs-3
+                    input#inputQuantity.form-control(type='input', placeholder='Quantity')
+                  .col-xs-2
+                    button.btn.btn-info.pull-right(type="button",onclick="AddNewRefineElement()") Add
+              
+            // /.box-body
+            .box-footer
+              table#refineSource.display
+            // /.box-footer
+        // /.box
