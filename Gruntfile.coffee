@@ -41,6 +41,7 @@ module.exports = (grunt) ->
           env:
             DEBUG: "karma:*"
             PORT: "3436"
+            NODE_ENV: "development"
           ext: "js,coffee"
           callback: (nodemon) ->
             # Write to the .livereload file when nodemon restarts the server

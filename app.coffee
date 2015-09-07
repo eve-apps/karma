@@ -4,6 +4,7 @@ express = require("express")
 expressLogger = require("morgan")
 jade = require("jade")
 pg = require("pg")
+require("longjohn") if process.env.NODE_ENV isnt "production"
 debug("dependencies loaded")
 
 # Configure database connection
