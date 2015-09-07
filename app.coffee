@@ -43,7 +43,7 @@ app.route "/home"
     debug("sending home page")
     res.render "home",
       title: "Home"
-app.route "/refine"
+app.route "/refining"
   .get (req, res) ->
     debug("sending refining page")
     res.render "refining",
