@@ -53,4 +53,6 @@ $(document).ready ->
   #- var opt = document.createElement("option");
   #- opt.innerHTML = this;
   #- $("#oreInput1").appendChild(opt);});
+
+  $("#addButton").on("click", AddNewRefiningElement)
   return
