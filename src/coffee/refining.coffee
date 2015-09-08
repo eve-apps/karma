@@ -11,12 +11,12 @@ AddNewRefiningElement = ->
   unless isNaN(quantity)
     itemName = $("#oreInput1").val()
 
-    oreRow = refiningTable.row((rowID) ->
+    oreRowID = refiningTable.row((rowID) ->
       return refiningTable.cell(rowID, 0).data() is itemName
     ).index()
     
-    if oreRow? # Found
-      oreCell = refiningTable.cell(oreRow, 1)
+    if oreRowID? # Found
+      oreCell = refiningTable.cell(oreRowID, 1)
       oreCell.data(oreCell.data() + quantity)
     else # Not found
       refiningTable.row.add([itemName, quantity])
