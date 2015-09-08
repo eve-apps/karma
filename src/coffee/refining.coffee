@@ -19,7 +19,7 @@ AddNewRefiningElement = ->
     itemName = $("#oreInput1").val()
 
     rowData = refiningTable.row((rowIdx) ->
-      if refiningTable.cell(rowIdx, 0).data() == itemName then true else false
+      return refiningTable.cell(rowIdx, 0).data() is itemName
     ).index()
     
     if rowData == undefined # Not found
