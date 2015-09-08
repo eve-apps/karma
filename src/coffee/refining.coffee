@@ -17,14 +17,17 @@ AddNewRefiningElement = ->
   Quantity = parseInt($("#inputQuantity").val(), 10)
   unless isNaN(Quantity)
     itemName = $("#oreInput1").val()
-    itemRow = refiningTable.column(0).data().indexOf(itemName)
 
-    if itemRow < 0 # Not found
+    rowData = refiningTable.row((rowIdx) ->
+      if refiningTable.cell(rowIdx, 0).data() == itemName then true else false
+    ).index()
+    
+    if rowData == undefined # Not found
       refiningTable.row.add([itemName, Quantity])
     else # Found
-      itemCell = refiningTable.cell(itemRow, 1) # Selects the right cell
-      dat = itemCell.data() # Pulls data from a different cell? wtf?!
-      itemCell.data(dat + Quantity)
+      newData = refiningTable.cell(rowData, 1).data()
+      refiningTable.cell(rowData, 1).data(newData + Quantity)
+
     refiningTable.draw()
   return
 
