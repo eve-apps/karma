@@ -1,8 +1,3 @@
-#query = require("pg-query")
-
-
-
-
 #oreList = query("select itemName from Ore order by itemName", (err, rows, result) ->
 #	alert rows )
 
@@ -10,23 +5,21 @@
 #alert oreList
 #alert "3333"
 refiningTable = null
-refineMe = []
-#accepts optional array of values as 2nd parameter for parameterized queries
 
 AddNewRefiningElement = ->
-  Quantity = parseInt($("#inputQuantity").val(), 10)
-  unless isNaN(Quantity)
+  quantity = parseInt($("#inputQuantity").val(), 10)
+  unless isNaN(quantity)
     itemName = $("#oreInput1").val()
 
-    rowData = refiningTable.row((rowIdx) ->
-      return refiningTable.cell(rowIdx, 0).data() is itemName
+    oreRow = refiningTable.row((rowID) ->
+      return refiningTable.cell(rowID, 0).data() is itemName
     ).index()
     
-    if rowData? # Found
-      newData = refiningTable.cell(rowData, 1).data()
-      refiningTable.cell(rowData, 1).data(newData + Quantity)
+    if oreRow? # Found
+      oldData = refiningTable.cell(oreRow, 1).data()
+      refiningTable.cell(oreRow, 1).data(oldData + quantity)
     else # Not found
-      refiningTable.row.add([itemName, Quantity])
+      refiningTable.row.add([itemName, quantity])
 
     refiningTable.draw()
   return
