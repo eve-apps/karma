@@ -22,11 +22,11 @@ AddNewRefiningElement = ->
       return refiningTable.cell(rowIdx, 0).data() is itemName
     ).index()
     
-    if rowData == undefined # Not found
-      refiningTable.row.add([itemName, Quantity])
-    else # Found
+    if rowData? # Found
       newData = refiningTable.cell(rowData, 1).data()
       refiningTable.cell(rowData, 1).data(newData + Quantity)
+    else # Not found
+      refiningTable.row.add([itemName, Quantity])
 
     refiningTable.draw()
   return
