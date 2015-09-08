@@ -6,7 +6,7 @@
 #alert "3333"
 refiningTable = null
 
-AddNewRefiningElement = ->
+UpdateRefiningTable = ->
   quantity = parseInt($("#inputQuantity").val(), 10)
   unless isNaN(quantity)
     itemName = $("#oreInput1").val()
@@ -38,5 +38,5 @@ $ ->
   #- opt.innerHTML = this;
   #- $("#oreInput1").appendChild(opt);});
 
-  $("#addButton").on("click", AddNewRefiningElement)
+  $("#addButton").on("click", UpdateRefiningTable)
   return
