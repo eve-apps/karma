@@ -16,8 +16,8 @@ AddNewRefiningElement = ->
     ).index()
     
     if oreRow? # Found
-      oldData = refiningTable.cell(oreRow, 1).data()
-      refiningTable.cell(oreRow, 1).data(oldData + quantity)
+      oreCell = refiningTable.cell(oreRow, 1)
+      oreCell.data(oreCell.data() + quantity)
     else # Not found
       refiningTable.row.add([itemName, quantity])
 
