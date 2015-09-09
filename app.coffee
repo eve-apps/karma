@@ -1,43 +1,79 @@
-debug = require("debug")("karma:main")
-debug("booting")
+# Start logging
+debug = require("debug")("karma:server")
+debug("Booting")
+
+# Load dependencies
 express = require("express")
-expressLogger = require("morgan")
-jade = require("jade")
-pg = require("pg")
-require("longjohn") if process.env.NODE_ENV isnt "production"
-debug("dependencies loaded")
+path = require("path")
+favicon = require("serve-favicon")
+logger = require("morgan")
+cookieParser = require("cookie-parser")
+bodyParser = require("body-parser")
+debug("Dependencies loaded")
 
-# Configure database connection
-try
-  credentials = require("./credentials.coffee")
-  debug("credentials loaded")
-catch
-  debug("credentials file not found")
-  process.exit 1
-query = require("pg-query")
-query.connectionParameters = credentials.db.connString
-debug("database connection configured")
-
-# Set server port
-port = process.env.PORT or 80
 # Initialize express app
 app = express()
-# Start express logger
-app.use expressLogger("dev")
-# Publish static content
-app.use express.static(__dirname + "/public")
-debug("express server configured")
+debug("Express app initialized")
 
-# Configure Jade view engine
-app.set("views", __dirname + "/views")
+# View engine configuration
+app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "jade")
-debug("view engine configured")
+debug("View engine configured")
+
+# Configure favicon
+app.use favicon(path.join(__dirname, "public", "favicon.ico"))
+debug("Favicon configured")
+# Enable express logger
+app.use logger("dev")
+debug("Express logger enabled")
+# Enable body parser
+app.use bodyParser.json()
+app.use bodyParser.urlencoded(extended: true)
+debug("Body parser enabled")
+# Enable cookie parser
+app.use cookieParser()
+debug("Cookie parser enabled")
+# Publish static content
+app.use express.static(path.join(__dirname, "public"))
+debug("Static content published")
 
 # Configure routes
-require("./routes.coffee")(app, pg, credentials)
-debug("routes configured")
+app.use "/", require("./routes/index")
+app.use "/home", require("./routes/home")
+app.use "/refining", require("./routes/refining")
+app.use "/db", require("./routes/db")
+debug("Routes configured")
 
-# Start listening on port
-app.listen port, ->
-  debug("listening on port #{port}")
+# Catch 404 and forward to error handler
+app.use (req, res, next) ->
+  err = new Error("Not Found")
+  err.status = 404
+  err.description = "The requested resource could not be found"
+  next(err)
   return
+
+# Error handlers
+if app.get("env") is "development"
+  # Development error handler
+  # Will print long stacktrace
+  require("longjohn")
+  app.use (err, req, res, next) ->
+    err.status = err.status or 500
+    res.status err.status
+    res.render "error",
+      message: err.message
+      error: err
+    return
+else
+  # Production error handler
+  # No stacktraces leaked to user
+  app.use (err, req, res, next) ->
+    err.status = err.status or 500
+    res.status err.status
+    res.render "error",
+      message: err.message
+      error: {status: err.status, description: err.description}
+    return
+debug("Error handlers configured")
+
+module.exports = app

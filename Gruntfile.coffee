@@ -30,7 +30,7 @@ module.exports = (grunt) ->
         ]
     nodemon:
       dev:
-        script: "app.coffee"
+        script: "./bin/www"
         options:
           ignore: [ # Do not restart when files in these folders are modified
             "./public/*"
@@ -38,11 +38,16 @@ module.exports = (grunt) ->
             "./node_modules/*"
             "./.livereload"
           ]
+          watch: [
+            "bin/www"
+            "."
+          ]
           env:
             DEBUG: "karma:*"
             PORT: "3436"
             NODE_ENV: "development"
-          ext: "js,coffee"
+          ext: "coffee"
+          exec: "coffee"
           callback: (nodemon) ->
             # Write to the .livereload file when nodemon restarts the server
             nodemon.on "restart", ->
