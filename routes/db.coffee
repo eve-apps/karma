@@ -5,10 +5,10 @@ pg = require("pg")
 
 # Load database connection config
 try
-  credentials = require("../credentials")
-  debug("Credentials loaded")
+  config = require("../config")
+  debug("Config loaded")
 catch
-  debug("Credentials file not found")
+  debug("Config file not found")
   process.exit 1
 
 # POST db command
@@ -17,7 +17,7 @@ router.post "/", (req, res, next) ->
   debug("Received DB command")
   if req.body.sql? and typeof req.body.sql is "string"
     debug("#{req.body.sql}")
-    pg.connect credentials.db.connString, (err, client, done) ->
+    pg.connect config.db.connString, (err, client, done) ->
       if err
         debug("DB command failed: #{err.message}")
         err.status = 500
