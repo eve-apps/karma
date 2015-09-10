@@ -1,3 +1,5 @@
+fs = require("fs")
+
 module.exports = (grunt) ->
   grunt.initConfig(
     coffee:
@@ -52,7 +54,7 @@ module.exports = (grunt) ->
             # Write to the .livereload file when nodemon restarts the server
             nodemon.on "restart", ->
               setTimeout (->
-                require("fs").writeFileSync ".livereload", "K"
+                fs.writeFileSync ".livereload", "K"
                 return
               ), 1000
               return
@@ -83,7 +85,14 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-concurrent"
 
-  grunt.registerTask("compile", ["stylus", "coffee"])
+  grunt.registerTask "forceReload", null, ->
+    setTimeout (->
+      fs.writeFileSync ".livereload", "K"
+      return
+    ), 1500
+    return
+
+  grunt.registerTask("compile", ["stylus", "coffee", "forceReload"])
   grunt.registerTask("default", ["compile", "concurrent"])
 
   return
