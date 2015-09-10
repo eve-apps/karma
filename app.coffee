@@ -16,12 +16,12 @@ app = express()
 debug("Express app initialized")
 
 # View engine configuration
-app.set("views", path.join(__dirname, "views"))
+app.set("views", path.join(__dirname, "./views"))
 app.set("view engine", "jade")
 debug("View engine configured")
 
 # Configure favicon
-app.use favicon(path.join(__dirname, "public", "favicon.ico"))
+app.use favicon(path.join(__dirname, "./public", "favicon.ico"))
 debug("Favicon configured")
 # Enable express logger
 app.use logger("dev")
@@ -34,7 +34,7 @@ debug("Body parser enabled")
 app.use cookieParser()
 debug("Cookie parser enabled")
 # Publish static content
-app.use express.static(path.join(__dirname, "public"))
+app.use express.static(path.join(__dirname, "./public"))
 debug("Static content published")
 
 # Configure routes

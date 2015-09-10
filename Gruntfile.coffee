@@ -41,7 +41,7 @@ module.exports = (grunt) ->
             "./.livereload"
           ]
           watch: [
-            "bin/www"
+            "./bin/www"
             "."
           ]
           env:
@@ -54,7 +54,7 @@ module.exports = (grunt) ->
             # Write to the .livereload file when nodemon restarts the server
             nodemon.on "restart", ->
               setTimeout (->
-                fs.writeFileSync ".livereload", "K"
+                fs.writeFileSync "./.livereload", "K"
                 return
               ), 1000
               return
@@ -88,7 +88,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask "forceReload", null, ->
     setTimeout (->
-      fs.writeFileSync ".livereload", "K"
+      fs.writeFileSync "./.livereload", "K"
       return
     ), 1500
     return
