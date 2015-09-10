@@ -62,7 +62,6 @@ module.exports = (grunt) ->
     watch:
       options:
         livereload: true
-        atBegin: true
       coffee:
         files: ["./src/coffee/*.coffee"]
         tasks: ["coffee"]
@@ -84,6 +83,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-concurrent"
 
-  grunt.registerTask("default", ["concurrent"])
+  grunt.registerTask("compile", ["stylus", "coffee"])
+  grunt.registerTask("default", ["compile", "concurrent"])
 
   return
