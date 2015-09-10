@@ -30,6 +30,9 @@ node_modules
 *.sublime-project
 *.sublime-workspace
 
+# JetBrains WebStorm
+.idea
+
 # Project specific
 public/js/*
 public/css/*
