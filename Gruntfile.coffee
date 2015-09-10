@@ -61,6 +61,7 @@ module.exports = (grunt) ->
             nodemon.on "log", (event) ->
               console.log event.colour
               return
+            return
     watch:
       options:
         livereload: true

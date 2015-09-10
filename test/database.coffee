@@ -15,6 +15,7 @@ describe "database", ->
       expect(rows[0]).to.be.an("object")
       expect(rows[0]).to.have.property("number", 1)
       done(err)
+      return
     return
   it "should do other database stuff too", (done) ->
     query "SELECT $1::int AS number", ["2"], (err, rows, result) ->
@@ -22,5 +23,6 @@ describe "database", ->
       expect(rows[0]).to.be.an("object")
       expect(rows[0]).to.have.property("number", 2)
       done(err)
+      return
     return
   return
