@@ -67,7 +67,7 @@ if app.get("env") is "development"
 else
   # Production error handler
   # No stacktraces leaked to user
-  app.use (err, req, res, next) ->
+  app.use (err, req, res) ->
     err.status = err.status or 500
     res.status err.status
     res.render "error",
