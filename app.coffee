@@ -72,7 +72,9 @@ else
     res.status err.status
     res.render "error",
       message: err.message
-      error: {status: err.status, description: err.description}
+      error:
+        status: err.status
+        description: err.description
     return
 debug("Error handlers configured")
 
