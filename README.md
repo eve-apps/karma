@@ -1,3 +1,6 @@
+[![Dependency Status][david-image]][david-url] [![devDependency Status][david-dev-image]][david-dev-url] [![peerDependency Status][david-peer-image]][david-peer-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
+
 # karma
 
 Gamification of member activities for Eve Online corporations
@@ -38,3 +41,12 @@ $ grunt
 ```
 
 [1]: https://nodejs.org/
+
+[coveralls-url]: https://coveralls.io/github/eve-apps/karma
+[coveralls-image]: https://img.shields.io/coveralls/eve-apps/karma.svg
+[david-url]: https://david-dm.org/eve-apps/karma
+[david-image]: https://img.shields.io/david/eve-apps/karma.svg
+[david-dev-url]: https://david-dm.org/eve-apps/karma#info=devDependencies
+[david-dev-image]: https://david-dm.org/eve-apps/karma/dev-status.svg
+[david-peer-url]: https://david-dm.org/eve-apps/karma#info=peerDependencies
+[david-peer-image]: https://david-dm.org/eve-apps/karma/peer-status.svg
