@@ -1,5 +1,6 @@
 [![Dependency Status][david-image]][david-url] [![devDependency Status][david-dev-image]][david-dev-url] [![peerDependency Status][david-peer-image]][david-peer-url]
-[![Coverage Status][coveralls-image]][coveralls-url]
+
+[![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url]
 
 # karma
 
@@ -42,6 +43,8 @@ $ grunt
 
 [1]: https://nodejs.org/
 
+[travis-url]: https://travis-ci.org/eve-apps/karma
+[travis-image]: https://img.shields.io/travis/eve-apps/karma.svg
 [coveralls-url]: https://coveralls.io/github/eve-apps/karma
 [coveralls-image]: https://img.shields.io/coveralls/eve-apps/karma.svg
 [david-url]: https://david-dm.org/eve-apps/karma
