@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "grunt",
-    "test": "mocha && istanbul report"
+    "test": "mocha && istanbul report text-summary lcov"
   },
   "dependencies": {
     "async": "^0.9.0",
