@@ -71,7 +71,7 @@ Sublime Text 3 is recommended, but not required.
 
 ### Step 8: Installing Karma's global dependencies
 1. Open `cmd.exe`
-2. Run the following command: `npm install -g coffee-script & npm install -g grunt-cli & npm install -g mocha`
+2. Run the following command: `npm install -g coffee-script grunt-cli istanbul mocha`
 3. Assuming no errors were thrown, your system is now configured to run Karma and you can close cmd
 
 ### Step 9: Downloading and configuring Karma
