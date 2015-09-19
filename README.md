@@ -1,4 +1,4 @@
-[![Dependency Status][david-image]][david-url] [![devDependency Status][david-dev-image]][david-dev-url] [![peerDependency Status][david-peer-image]][david-peer-url]
+[![Dependency Status][david-image]][david-url] [![devDependency Status][david-dev-image]][david-dev-url] [![peerDependency Status][david-peer-image]][david-peer-url] [![Apache 2.0 License][license-image]][license-url]
 
 [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url]
 
@@ -41,8 +41,14 @@ $ npm install
 $ grunt
 ```
 
+## License
+
+[Apache 2.0][license-url]
+
 [1]: https://nodejs.org/
 
+[license-image]: http://img.shields.io/badge/license-Apache%202.0-blue.svg
+[license-url]: LICENSE
 [travis-url]: https://travis-ci.org/eve-apps/karma
 [travis-image]: https://img.shields.io/travis/eve-apps/karma.svg
 [coveralls-url]: https://coveralls.io/github/eve-apps/karma
