@@ -93,7 +93,7 @@ module.exports = (grunt) ->
     ), 1500
     return
 
-  grunt.registerTask("compile", ["stylus", "coffee", "forceReload"])
-  grunt.registerTask("default", ["compile", "concurrent"])
+  grunt.registerTask("build", ["stylus", "coffee"])
+  grunt.registerTask("default", ["build", "forceReload", "concurrent"])
 
   return

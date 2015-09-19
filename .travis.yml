@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "0.12"
+before_install:
+  - npm install -g coffee-script grunt-cli istanbul mocha
+install:
+  - npm install
+before_script:
+  - grunt build
+script:
+  - npm test
+after_success:
+  - cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
