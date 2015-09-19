@@ -20,6 +20,11 @@ Install Grunt CLI
 $ npm install -g grunt-cli
 ```
 
+Install Istanbul
+```
+$ npm install -g istanbul
+```
+
 Install Mocha
 ```
 $ npm install -g mocha
