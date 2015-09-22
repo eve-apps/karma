@@ -23,7 +23,8 @@
   "bugs": "https://github.com/eve-apps/karma/issues",
   "main": "karma.coffee",
   "engines": {
-    "node": "^0.12.2"
+    "node": "^0.12.2",
+    "npm": "^3.3.3"
   },
   "scripts": {
     "start": "grunt",
