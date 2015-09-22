@@ -1,6 +1,7 @@
 #!/usr/bin/env coffee
 
 # Load dependencies
+require("pretty-error").start()
 debug = require("debug")("karma:server")
 http = require("http")
 app = require("../app")

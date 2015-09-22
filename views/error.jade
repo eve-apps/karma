@@ -8,6 +8,6 @@ block body
   h1 #{error.status}: #{message}
   h4 #{error.description || message}
   if error.stack
-    pre #{error.stack}
+    pre!= error.stack
   else
     a(href="/") Click here to return to Karma

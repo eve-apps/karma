@@ -55,11 +55,12 @@ app.use (req, res, next) ->
 # Error handlers
 if app.get("env") is "development"
   # Development error handler
-  # Will print long stacktrace
-  require("longjohn")
+  # Will print stacktrace
+  ansi_up = require("ansi_up")
   app.use (err, req, res, next) ->
     err.status = err.status or 500
     res.status err.status
+    err.stack = ansi_up.ansi_to_html(err.stack).replace(/color:rgb\(85, 85, 85\)/gi, "color:rgb(150, 150, 150)")
     res.render "error",
       message: err.message
       error: err
