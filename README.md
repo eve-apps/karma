@@ -1,4 +1,4 @@
-[![Dependency Status][david-image]][david-url] [![devDependency Status][david-dev-image]][david-dev-url] [![peerDependency Status][david-peer-image]][david-peer-url] [![Apache 2.0 License][license-image]][license-url]
+[![Dependency Status][david-image]][david-url] [![devDependency Status][david-dev-image]][david-dev-url] [![Apache 2.0 License][license-image]][license-url]
 
 # karma [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url]
 
@@ -60,5 +60,3 @@ $ grunt
 [david-image]: https://img.shields.io/david/eve-apps/karma.svg
 [david-dev-url]: https://david-dm.org/eve-apps/karma#info=devDependencies
 [david-dev-image]: https://david-dm.org/eve-apps/karma/dev-status.svg
-[david-peer-url]: https://david-dm.org/eve-apps/karma#info=peerDependencies
-[david-peer-image]: https://david-dm.org/eve-apps/karma/peer-status.svg
