@@ -17,22 +17,41 @@ template(name="loading")
 template(name="dashboard")
   #dashboard
     header
-      span Karma
-      a Sign in
-      span Eve player name
-    nav
-      +sidebar
-    main
-      +yield("main")
+      .ui.inverted.menu
+        img.item.ui.tiny.logo.image(src="/knot.png")
+        .right.menu
+          .ui.dropdown.item
+            img.ui.avatar.image(src="/image.png")
+            span Character name
+            .menu
+              .item Lorem
+              .item Ipsum
+              a.item(href="/logout")
+                i.log.out.icon Log out
+    .page-wrapper
+      nav
+        +sidebar
+      main
+        .ui.container
+          +yield("main")
     footer
-      | Running on Meteor
+      .ui.inverted.center.aligned.footer.segment
+        | Running on Meteor
 
 template(name="sidebar")
-  #sidebar
-    a(href="/refining") Refining
-    a(href="/industry") Industry
-    a(href="/home") Dashboard
-    a(href="/meteortest") Meteor Test
+  #sidebar.ui.inverted.vertical.sticky.menu
+    h1.item Karma
+    .item
+      
+    .item
+      | Links
+      .menu
+        a.item(href="/home") Home
+        a.item(href="/refining") Refining
+        a.item(href="/industry") Industry
+        a.item(href="/meteortest") Meteor Test
+    a.item(href="/logout")
+      
 
 template(name="simple")
   #simple

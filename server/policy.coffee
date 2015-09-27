@@ -6,6 +6,8 @@ BrowserPolicy.content.allowFontDataUrl()
 
 trusted = [
   "*.google-analytics.com"
+  "fonts.googleapis.com"
+  "fonts.gstatic.com"
 ]
 
 for origin in trusted
