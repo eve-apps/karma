@@ -9,3 +9,8 @@ Router.configure
 
 Router.onAfterAction ->
   document.title = "Karma - #{@route.name or "Index"}"
+  return
+
+Template.dashboard.onRendered ->
+  $("#dashboard .ui.dropdown").dropdown()
+  return

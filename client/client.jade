@@ -16,21 +16,29 @@ template(name="loading")
 
 template(name="dashboard")
   #dashboard
-    header
-      .ui.inverted.menu
-        img.item.ui.tiny.logo.image(src="/knot.png")
-        .right.menu
-          .ui.dropdown.item
-            img.ui.avatar.image(src="/image.png")
-            span Character name
-            .menu
-              .item Lorem
-              .item Ipsum
-              a.item(href="/logout")
-                i.log.out.icon Log out
+    nav
+      +sidebar
     .page-wrapper
-      nav
-        +sidebar
+      header
+        .ui.inverted.menu
+          .right.menu
+            .ui.dropdown.item
+              img.ui.avatar.image(src="/image.png")
+              span &nbsp;Character name
+              i.dropdown.icon
+              .menu
+                a.item
+                  i.user.icon
+                  span Profile
+                a.item
+                  i.settings.icon
+                  span Settings
+                a.item
+                  i.lock.icon
+                  span Lock screen
+                a.item(href="/logout")
+                  i.log.out.icon
+                  span Log out
       main
         .ui.container
           +yield("main")
@@ -39,18 +47,18 @@ template(name="dashboard")
         | Running on Meteor
 
 template(name="sidebar")
-  #sidebar.ui.inverted.vertical.sticky.menu
-    h1.item Karma
+  #sidebar.ui.inverted.vertical.menu
+    a.item(href="/home")
+      img.ui.logo.image(src="/karma.png")
     .item
-      
-    .item
-      | Links
+      .header Misc
       .menu
-        a.item(href="/home") Home
+        a.item(href="/meteortest") Meteor Test
+    .item
+      .header Tools
+      .menu
         a.item(href="/refining") Refining
         a.item(href="/industry") Industry
-        a.item(href="/meteortest") Meteor Test
-    a.item(href="/logout")
       
 
 template(name="simple")
