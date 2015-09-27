@@ -29,3 +29,5 @@ semantic:ui
 johnantoni:meteor-normalize
 aldeed:tabular
 robodo:meteor-debug
+ejson
+zimme:active-route

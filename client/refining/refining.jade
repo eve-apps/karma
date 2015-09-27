@@ -1,0 +1,37 @@
+template(name="refiningMain")
+  #refining
+    .mdl-grid
+      .mdl-cell.mdl-cell--6-col
+        .mdl-card
+          .mdlcard__title
+            | Ore Input
+          .mdl-card__supporting-text
+            form
+              .mdl-grid
+                label.mdl-cell.mdl-cell--2-col(for="oreInput1") Ore
+                select#oreInput1(type="select", placeholder="Ore Type")
+                  option Veldspar
+                  option Omber
+                  option Arkonor
+                label.mdl-cell.mdl-cell--2-col(for="inputQuantity") Quantity
+                .mdl-cell.mdl-cell--2-col
+                  input#inputQuantity(type="input", placeholder="Quantity")
+                .mdl-cell.mdl-cell--2-col
+                  button#addButton(type="button") Add
+      .mdl-cell.mdl-cell--6-col
+        .mdl-card
+          .mdlcard__title
+            | Ore Input
+          .mdl-card__supporting-text
+            form
+              .mdl-grid
+                label.mdl-cell.mdl-cell--2-col(for="oreInput1") Ore
+                select#oreInput1(type="select", placeholder="Ore Type")
+                  option Veldspar
+                  option Omber
+                  option Arkonor
+                label.mdl-cell.mdl-cell--2-col(for="inputQuantity") Quantity
+                .mdl-cell.mdl-cell--2-col
+                  input#inputQuantity(type="input", placeholder="Quantity")
+                .mdl-cell.mdl-cell--2-col
+                  button#addButton(type="button") Add

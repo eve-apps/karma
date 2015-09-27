@@ -1,0 +1,44 @@
+head
+  meta(http-equiv="X-UA-Compatible", content="IE=Edge")
+  meta(charset="UTF-8")
+  meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+  meta(name="application-name", content="Karma")
+  meta(name="description", content="Karma incentivizes and rewards activity in EVE Online corporations and alliances")
+  title Karma
+
+template(name="error")
+  .error
+    span Whoops! I couldn't find what you were looking for...
+
+template(name="loading")
+  .loading
+    span Loading...
+
+template(name="dashboard")
+  #dashboard
+    header
+      span Karma
+      a Sign in
+      span Eve player name
+    nav
+      +sidebar
+    main
+      +yield("main")
+    footer
+      | Running on Meteor
+
+template(name="sidebar")
+  #sidebar
+    a(href="/refining") Refining
+    a(href="/industry") Industry
+    a(href="/home") Dashboard
+    a(href="/meteortest") Meteor Test
+
+template(name="simple")
+  #simple
+    header
+      h1 Karma
+    main
+      +yield("main")
+    footer
+      | Running on Meteor
