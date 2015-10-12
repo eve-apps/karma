@@ -32,3 +32,5 @@ robodo:meteor-debug
 ejson
 zimme:active-route
 flemay:less-autoprefixer
+tmikoss:accounts-eveonline
+accounts-ui-unstyled

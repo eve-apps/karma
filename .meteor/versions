@@ -1,3 +1,6 @@
+accounts-base@1.2.1
+accounts-oauth@1.1.7
+accounts-ui-unstyled@1.1.8
 aldeed:collection2@2.5.0
 aldeed:simple-schema@1.3.3
 aldeed:tabular@1.4.0
@@ -23,6 +26,7 @@ coffeescript@1.0.10
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.1
+ddp-rate-limiter@1.0.0
 ddp-server@1.2.1
 deps@1.0.9
 diff-sequence@1.0.1
@@ -50,7 +54,9 @@ iron:url@1.0.9
 johnantoni:meteor-normalize@0.0.1
 jquery@1.11.4
 launch-screen@1.0.4
+less@2.5.0_3
 livedata@1.0.15
+localstorage@1.0.5
 logging@1.0.8
 meteor@1.1.9
 meteor-base@1.0.1
@@ -63,11 +69,14 @@ mongo-id@1.0.1
 mquandalle:jade@0.4.3_1
 mquandalle:jade-compiler@0.4.3
 npm-mongo@1.4.39_1
+oauth@1.1.6
+oauth2@1.1.5
 observe-sequence@1.0.7
 ordered-dict@1.0.4
 promise@0.5.0
 random@1.0.4
 rate-limit@1.0.0
+reactive-dict@1.1.2
 reactive-var@1.0.6
 reload@1.1.4
 retry@1.0.4
@@ -75,6 +84,7 @@ robodo:meteor-debug@0.0.6
 routepolicy@1.0.6
 semantic:ui@2.1.4
 semantic:ui-data@2.1.4
+service-configuration@1.0.5
 session@1.1.1
 spacebars@1.0.7
 spacebars-compiler@1.0.7
@@ -83,6 +93,7 @@ stevezhu:lodash@3.10.1
 stylus@2.511.0_2
 templating@1.1.4
 templating-tools@1.0.0
+tmikoss:accounts-eveonline@0.1.0
 tracker@1.0.9
 ui@1.0.8
 underscore@1.0.4

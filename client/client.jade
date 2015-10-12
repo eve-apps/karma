@@ -22,9 +22,13 @@ template(name="dashboard")
       header
         .ui.inverted.menu
           .right.menu
+            +loginButtons
             .ui.dropdown.item
-              img.ui.avatar.image(src="/image.png")
-              span &nbsp;Character name
+              if currentUser
+                img.ui.avatar.image(src="https://image.eveonline.com/Character/#{currentCharId}_64.jpg")
+              else
+                img.ui.avatar.image(src="/image.png")
+              span &nbsp;#{currentCharName}
               i.dropdown.icon
               .menu
                 a.item
@@ -36,7 +40,7 @@ template(name="dashboard")
                 a.item
                   i.lock.icon
                   span Lock screen
-                a.item(href="/logout")
+                a.item.logout-button
                   i.log.out.icon
                   span Log out
       main
