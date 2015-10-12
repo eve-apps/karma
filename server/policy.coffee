@@ -11,5 +11,5 @@ trusted = [
 ]
 
 for origin in trusted
-  BrowserPolicy.content.allowOriginForAll origin
   origin = "https://#{origin}"
+  BrowserPolicy.content.allowOriginForAll origin
