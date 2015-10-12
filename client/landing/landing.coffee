@@ -1,4 +1,4 @@
 Router.route "/", ->
   @layout("simple")
-  @render("indexMain", {to: "main"})
+  @render("landingMain", {to: "main"})
   return
