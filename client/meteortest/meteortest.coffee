@@ -2,11 +2,6 @@ debug.enable("karma:*")
 d = debug("karma:client")
 _ = lodash
 
-Router.route "/meteortest", ->
-  @layout("dashboard")
-  @render("meteortestMain", {to: "main"})
-  return
-
 # counter starts at 0
 Session.setDefault "counter", 0
 
