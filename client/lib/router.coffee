@@ -4,7 +4,9 @@
 
 # Redirect to /home after logging in
 Accounts.onLogin ->
-  FlowRouter.go(FlowRouter.path("home"))
+  if not Session.get("loginRedirected")
+    FlowRouter.go(FlowRouter.path("home"))
+    Session.setAuth("loginRedirected", true)
   return
 
 # Make sure user is logged in when accessing the dashboard
