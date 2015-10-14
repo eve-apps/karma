@@ -17,7 +17,7 @@ template(name="loading")
 template(name="dashboard")
   #dashboard
     nav
-      +sidebar
+      +Template.dynamic(template=side)
     .page-wrapper
       header
         .ui.inverted.menu
@@ -44,21 +44,21 @@ template(name="dashboard")
                   span Log out
       main
         .ui.container
-          +yield("main")
+          +Template.dynamic(template=main)
     footer
       .ui.inverted.center.aligned.footer.segment
         | Running on Meteor
 
 template(name="sidebar")
   #sidebar.ui.inverted.vertical.menu
-    a.item(href="/home")
+    a.item(href="{{pathFor 'home'}}")
       img.ui.logo.image(src="/karma.png")
     .item
       .header Misc
       .menu
-        a.item(href="/meteortest") Meteor Test
+        a.item(href="{{pathFor 'meteortest'}}") Meteor Test
     .item
       .header Tools
       .menu
-        a.item(href="/refining") Refining
-        a.item(href="/industry") Industry
+        a.item(href="{{pathFor 'refining'}}") Refining
+        a.item(href="{{pathFor 'industry'}}") Industry

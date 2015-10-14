@@ -1,51 +1,56 @@
 ##
-# Globals
+# Auth
 ##
-
-Router.configure
-  notFoundTemplate: "error"
-  loadingTemplate: "loading"
 
 # Redirect to /home after logging in
 Accounts.onLogin ->
-  Router.go("/home")
+  FlowRouter.go(FlowRouter.path("home"))
   return
 
 # Make sure user is logged in when accessing the dashboard
-Router.onBeforeAction (->
-  if not Meteor.userId() and not Meteor.loggingIn() then Router.go("/")
-  @next()
-  return
-), except: ["/"]
-
-Router.onAfterAction ->
-  document.title = "Karma - #{@route.name or "Index"}"
+requireAuth = (context, redirect) ->
+  if not Meteor.userId() and not Meteor.loggingIn()
+    redirect(FlowRouter.path("landing"))
   return
 
 ##
 # Routes
 ##
 
-Router.route "/", ->
-  @render("landing")
-  return
+exposed = FlowRouter.group {}
+app = FlowRouter.group
+  prefix: "/app"
+  triggersEnter: [requireAuth]
 
-Router.route "/home", ->
-  @layout("dashboard")
-  @render("homeMain", {to: "main"})
-  return
+exposed.route "/",
+  name: "landing"
+  action: ->
+    BlazeLayout.render "landing"
 
-Router.route "/industry", ->
-  @layout("dashboard")
-  @render("industryMain", {to: "main"})
-  return
+app.route "/home",
+  name: "home"
+  action: ->
+    BlazeLayout.render "dashboard",
+      main: "home"
+      side: "sidebar"
 
-Router.route "/meteortest", ->
-  @layout("dashboard")
-  @render("meteortestMain", {to: "main"})
-  return
+app.route "/industry",
+  name: "industry"
+  action: ->
+    BlazeLayout.render "dashboard",
+      main: "industry"
+      side: "sidebar"
 
-Router.route "/refining", ->
-  @layout("dashboard")
-  @render("refiningMain", {to: "main"})
-  return
+app.route "/meteortest",
+  name: "meteortest"
+  action: ->
+    BlazeLayout.render "dashboard",
+      main: "meteortest"
+      side: "sidebar"
+
+app.route "/refining",
+  name: "refining"
+  action: ->
+    BlazeLayout.render "dashboard",
+      main: "refining"
+      side: "sidebar"

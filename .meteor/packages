@@ -21,7 +21,6 @@ insecure                # Allow all DB writes from clients (for prototyping)
 coffeescript
 stylus
 mquandalle:jade
-iron:router
 browser-policy
 stevezhu:lodash
 aldeed:collection2
@@ -34,3 +33,6 @@ zimme:active-route
 flemay:less-autoprefixer
 tmikoss:accounts-eveonline
 accounts-ui-unstyled
+kadira:flow-router
+kadira:blaze-layout
+arillo:flow-router-helpers
